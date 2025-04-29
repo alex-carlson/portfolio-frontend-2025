@@ -195,3 +195,37 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.githubContributions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    /* lay out vertically */
+    flex-direction: column;
+}
+
+.socials {
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+
+.socials-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.socials-links a {
+    color: var(--foreground);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+}
