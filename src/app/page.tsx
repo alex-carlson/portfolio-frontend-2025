@@ -1,5 +1,4 @@
 import { sanityClient } from '@/lib/sanity';
-import styles from '@/styles/globals.css';
 
 export default async function Page() {
   // Fetch blog posts directly inside the server component
