@@ -16,21 +16,21 @@ type BlogPost = {
 
 export default async function Page() {
   // Fetch blog posts directly inside the server component
-  const blogPosts = await sanityClient.fetch(`
-    *[_type == "blogPost"] | order(publishedDate desc){
+  const blogPosts = await sanityClient.fetch(
+    `*[_type == "blogPost"] | order(publishedDate desc) {
       title,
       slug,
       publishedDate,
       author,
-        {blogPosts.map((post: BlogPost) => (
+      body,
       mainImage {
-        asset->{
+        asset -> {
           _id,
           url
         }
       }
-    }
-  `);
+    }`
+  );
 
   return (
     <div className="container">
