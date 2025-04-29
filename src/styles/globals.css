@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Signika+Negative:wght@400;500;600;700&display=swap');
 
 :root {
     --background: #ffffff;
@@ -7,30 +7,18 @@
     /* Medium blue text */
     --container-background: #f8f9fa;
     /* Very light gray for container */
-}
-
-@theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #121212;
-        /* Darker background for better contrast */
-        --foreground: #e0e0e0;
-        /* Lighter foreground for better readability */
-        --container-background: #1e1e1e;
-        /* Darker container background */
-    }
+    --font-sans: 'Signika Negative', sans-serif;
+    /* Updated font for headings */
+    --font-body: 'Lato', sans-serif;
+    /* Added Lato for body copy */
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+    background: #d9d9d9;
+    background: radial-gradient(circle, rgba(217, 217, 217, 1) 0%, rgba(207, 207, 207, 1) 76%);
+    color: #333333;
+    /* Set overall text color to dark gray */
+    font-family: var(--font-body);
 }
 
 header {
@@ -53,7 +41,6 @@ footer {
 }
 
 .container {
-    background-color: var(--container-background);
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -69,7 +56,7 @@ footer {
 
 .project {
     background-color: var(--container-background);
-    border: 1px solid var(--foreground);
+    border: 3px solid var(--foreground);
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
@@ -92,11 +79,13 @@ footer {
 .project h2 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: var(--foreground)
 }
 
 .project p {
     font-size: 1rem;
     color: var(--foreground);
+    text-align: left;
 }
 
 h1 {
@@ -139,4 +128,70 @@ p {
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 1rem;
+    font-family: var(--font-body);
+}
+
+/* Adjusted styles for bio to ensure content is equally centered */
+.bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 2em;
+}
+
+.bio-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+}
+
+/* Added hover effect to spin the bio image */
+.bio-image:hover {
+    animation: spin 0.75s ease-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bio-text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tag {
+    background-color: var(--foreground);
+    color: var(--background);
+    padding: 0.5rem 1rem;
+    border-radius: 1em;
+    font-size: 0.875rem;
+    font-weight: bold;
+    font-family: var(--font-body);
+}
+
+a {
+    color: var(--foreground);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
 }

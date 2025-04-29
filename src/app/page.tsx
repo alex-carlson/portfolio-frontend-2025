@@ -1,9 +1,12 @@
 import { sanityClient } from '@/lib/sanity';
+import Bio from './components/Bio';
+import Project from './components/Project';
 
 type BlogPost = {
   title: string;
   slug: { current: string };
   publishedDate: string;
+  link: string;
   author: string;
   body: { children: { text: string }[] }[];
   mainImage?: {
@@ -12,16 +15,19 @@ type BlogPost = {
       url: string;
     };
   };
+  tags: string[];
 };
 
 export default async function Page() {
+
   // Fetch blog posts directly inside the server component
   const blogPosts = await sanityClient.fetch(
     `*[_type == "blogPost"] | order(publishedDate desc) {
       title,
       slug,
       publishedDate,
-      author,
+      tags,
+      link,
       body,
       mainImage {
         asset -> {
@@ -34,19 +40,20 @@ export default async function Page() {
 
   return (
     <div className="container">
+      <Bio />
+
       <h1 style={{ textAlign: 'center' }}>Projects</h1>
+
       <div className="projects">
-        {blogPosts.map((post: BlogPost) => (
-          <div key={post.slug.current} className="project">
-            <h2>{post.title}</h2>
-            {post.mainImage?.asset?.url && (
-              <img
-                src={post.mainImage.asset.url}
-                alt={post.title}
-              />
-            )}
-            <p>{post.body[0].children[0].text}</p> {/* Display first part of body */}
-          </div>
+        {blogPosts.map((post) => (
+          <Project
+            key={post.slug.current}
+            title={post.title}
+            link={post.link}
+            mainImage={post.mainImage}
+            body={post.body}
+            tags={post.tags}
+          />
         ))}
       </div>
     </div>
