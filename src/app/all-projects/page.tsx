@@ -1,5 +1,6 @@
 import { sanityClient } from '@/lib/sanity';
 import Project from '../components/Project';
+import Link from 'next/link';
 
 type BlogPost = {
     title: string;
@@ -41,7 +42,7 @@ export default async function AllProjects() {
             <h1 style={{ textAlign: 'center' }}>All Projects</h1>
 
             <div className="projects">
-                {blogPosts.map((post) => (
+                {blogPosts.map((post: BlogPost) => (
                     <Project
                         key={post.slug.current}
                         title={post.title}
@@ -54,9 +55,9 @@ export default async function AllProjects() {
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                <a href="/" style={{ color: 'blue', textDecoration: 'underline' }}>
+                <Link href="/" style={{ color: 'blue', textDecoration: 'underline' }}>
                     Back to Home
-                </a>
+                </Link>
             </div>
         </div>
     );

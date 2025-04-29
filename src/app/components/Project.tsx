@@ -1,7 +1,4 @@
 import Image from 'next/image';
-// import link from fontawesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 type ProjectProps = {
     title: string;
