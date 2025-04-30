@@ -9,8 +9,6 @@ export default function Bio() {
             <Image
                 src={profilePic}
                 alt="Profile Picture"
-                width={150}
-                height={150}
                 className="bio-image"
             />
             <div className="bio-text">

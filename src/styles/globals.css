@@ -11,6 +11,11 @@
     /* Updated font for headings */
     --font-body: 'Lato', sans-serif;
     /* Added Lato for body copy */
+    --tag-background: #d5d5d5;
+    --tag-text: #2c2c2c;
+    --link-color: #0056b3;
+    --link-hover-color: #67a9f0;
+    --link-select-color: #00264d;
 }
 
 body {
@@ -43,15 +48,46 @@ footer {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
     font-family: var(--font-sans);
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    padding: 2rem;
+}
+
+.view-all-button {
+    background-color: var(--foreground);
+    color: var(--background);
+    padding: 0.5rem 1rem;
+    border-radius: 1em;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-button:hover {
+    background-color: var(--link-hover-color);
+    color: var(--background);
+    cursor: pointer;
+}
+
+.view-all-button:active {
+    background-color: var(--link-select-color);
+    color: var(--background);
+}
+
+/* if screen size is greater than 600px, display in a grid */
+
+@media (min-width: 600px) {
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
 }
 
 .project {
@@ -61,12 +97,11 @@ footer {
     padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
 }
 
 .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--link-hover-color);
 }
 
 .project img {
@@ -138,9 +173,7 @@ p {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    border-radius: 2em;
+    padding: 1rem 0 2rem 0;
 }
 
 .bio-image {
@@ -165,8 +198,7 @@ p {
 }
 
 .bio-text {
-    font-size: 1.25rem;
-    line-height: 1.5;
+    letter-spacing: -1.5px;
 }
 
 .tags {
@@ -177,31 +209,35 @@ p {
 }
 
 .tag {
-    background-color: var(--foreground);
-    color: var(--background);
-    padding: 0.5rem 1rem;
+    background-color: var(--tag-background);
+    color: var(--tag-text);
+    padding: 0.4rem 0.75rem;
     border-radius: 1em;
     font-size: 0.875rem;
     font-weight: bold;
     font-family: var(--font-body);
+    border: solid 1px var(--tag-text);
+    box-sizing: border-box;
 }
 
 a {
-    color: var(--foreground);
+    color: var(--link-color);
     text-decoration: none;
     font-weight: bold;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+a:active {
+    color: var(--link-select-color);
 }
 
 .githubContributions {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
-    /* lay out vertically */
     flex-direction: column;
 }
 
@@ -211,7 +247,6 @@ a:hover {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin-top: 2rem;
     flex-direction: column;
 }
 
@@ -219,13 +254,43 @@ a:hover {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .socials-links a {
     color: var(--foreground);
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.5rem;
-    width: 50px;
-    height: 50px;
+    font-size: 1rem;
+    transition: color 0.2s;
+    /* vertical align children */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.socials-links a:hover {
+    color: var(--link-hover-color);
+    cursor: pointer;
+}
+
+.socials-links a:active {
+    color: var(--link-select-color);
+    cursor: pointer;
+}
+
+.socials-links img,
+.socials-links svg {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.2s;
+}
+
+.spacer {
+    height: 2rem;
+    width: 100%;
 }

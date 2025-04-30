@@ -55,7 +55,7 @@ export default async function AllProjects() {
             </div>
 
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                <Link href="/" style={{ color: 'blue', textDecoration: 'underline' }}>
+                <Link href="/" className="view-all-button">
                     Back to Home
                 </Link>
             </div>
