@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faBluesky, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faBluesky, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export default function Connect() {
     return (
@@ -9,6 +9,10 @@ export default function Connect() {
                 <a href="https://bsky.app/profile/alexcarlson.bsky.social" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faBluesky} size="2x" />
                     <span>Bluesky</span>
+                </a>
+                <a href="https://x.com/alexcarlson__" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faXTwitter} size="2x" />
+                    <span>X</span>
                 </a>
                 <a href="https://github.com/alex-carlson" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faGithub} size="2x" />
