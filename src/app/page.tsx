@@ -65,8 +65,10 @@ export default async function Page() {
     "Retro Game Consoles",
     "Game Shows",
     "Escape Rooms",
+    "Indie Games",
     "Karaoke",
-    "Rock Climbing"
+    "Rock Climbing",
+    "Concerts",
   ];
 
   return (
