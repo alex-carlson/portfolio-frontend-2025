@@ -3,6 +3,7 @@ import { sanityClient } from '@/lib/sanity';
 import Bio from './components/Bio';
 import Project from './components/Project';
 import Connect from './components/Connect';
+import WordSalad from './components/WordSalad';
 
 type BlogPost = {
   title: string;
@@ -43,6 +44,31 @@ export default async function Page() {
   // Limit the displayed projects to the latest 6 and add a link to view all projects
   const latestBlogPosts = blogPosts.slice(0, 6);
 
+  const skillsList = [
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Sass",
+    "Git",
+    "Next.js",
+    "Svelte",
+    "Docker",
+    "Angular",
+    "Vue"
+  ];
+
+  const interestsList = [
+    "Mechanical Keyboards",
+    "Puzzle Games",
+    "Retro Game Consoles",
+    "Game Shows",
+    "Escape Rooms",
+    "Karaoke",
+    "Rock Climbing"
+  ];
+
   return (
     <div>
       <Bio />
@@ -71,6 +97,15 @@ export default async function Page() {
 
       <div className="spacer"></div>
 
+      <div className="container center">
+        <h2>Skills</h2>
+        <WordSalad words={skillsList} type="skill" />
+        <h2>Interests</h2>
+        <WordSalad words={interestsList} type="interest" />
+      </div>
+
+      <div className="spacer"></div>
+
       <Connect />
 
       <div className="spacer"></div>
@@ -85,8 +120,6 @@ export default async function Page() {
           />
         </a>
       </div>
-
-
     </div>
   );
 }
