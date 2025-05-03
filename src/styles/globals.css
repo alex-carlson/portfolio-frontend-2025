@@ -20,7 +20,7 @@
 
 body {
     background: #d9d9d9;
-    background: radial-gradient(circle, rgba(217, 217, 217, 1) 0%, rgba(207, 207, 207, 1) 76%);
+    background: radial-gradient(circle, #ffffff 0%, #d3d3d3 76%);
     color: #333333;
     /* Set overall text color to dark gray */
     font-family: var(--font-body);
@@ -184,21 +184,30 @@ p {
 
 /* Added hover effect to spin the bio image */
 .bio-image:hover {
-    animation: spin 0.75s ease-out;
+    animation: spin 0.75s ease-in-out;
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
+    0% {
+        transform: scale(1);
     }
 
-    to {
-        transform: rotate(360deg);
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
 
 .bio-text {
     letter-spacing: -1.5px;
+}
+
+.bio-text .active {
+    color: white;
+    font-weight: bold;
 }
 
 .tags {
@@ -218,6 +227,20 @@ p {
     font-family: var(--font-body);
     border: solid 1px var(--tag-text);
     box-sizing: border-box;
+}
+
+.tag-filter button {
+    background-color: var(--tag-background);
+    color: var(--tag-text);
+    padding: 0.4rem 0.75rem;
+    border-radius: 1em;
+    font-size: 0.875rem;
+    font-weight: bold;
+    font-family: var(--font-body);
+    border: solid 1px var(--tag-text);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 0.5rem;
 }
 
 a {
@@ -331,5 +354,15 @@ a:active {
 
 .interest {
     /* set background color to light green */
+    background-color: #85eb8e;
+}
+
+.game {
+    /* set background color to light purple */
+    background-color: #73cbd7;
+}
+
+.web {
+    /* set background color to light orange */
     background-color: #85eb8e;
 }

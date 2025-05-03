@@ -10,9 +10,10 @@ type ProjectProps = {
     };
     body: { children: { text: string }[] }[];
     tags: string[];
+    onTagClick: (tag: string) => void; // Callback for tag click
 };
 
-const Project = ({ title, link, mainImage, body, tags }: ProjectProps) => {
+const Project = ({ title, link, mainImage, body, tags, onTagClick }: ProjectProps) => {
     return (
         <div className="project">
             <h2>
@@ -33,7 +34,12 @@ const Project = ({ title, link, mainImage, body, tags }: ProjectProps) => {
             <p>{body[0].children[0].text}</p> {/* Display first part of body */}
             <div className="tags">
                 {tags?.map((tag) => (
-                    <span key={tag} className="tag">
+                    <span
+                        key={tag}
+                        className="tag"
+                        onClick={() => onTagClick(tag)} // Call parent callback
+                        style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
+                    >
                         {tag}
                     </span>
                 ))}
