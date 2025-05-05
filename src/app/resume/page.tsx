@@ -1,5 +1,8 @@
 import { sanityClient } from '@/lib/sanity';
 import Link from 'next/link';
+import Return from '../components/Return';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 export default async function AllProjects() {
     return (
@@ -8,7 +11,7 @@ export default async function AllProjects() {
 
             <div className="resume-container">
                 <div className="left resume-item">
-                    <h2>Unity Engineer</h2>
+                    <h2>Unity Engineer <Link href="http://acwd.me/AlexCarlson-UnityEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
                     <embed
                         src="http://acwd.me/AlexCarlson-UnityEngineer.pdf"
                         style={{ width: '100%', height: '500px', border: 'none' }}
@@ -16,7 +19,7 @@ export default async function AllProjects() {
                     />
                 </div>
                 <div className="right resume-item">
-                    <h2>Software Engineer</h2>
+                    <h2>Software Engineer <Link href="http://acwd.me/AlexCarlson-SoftwareEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
                     <embed
                         src="http://acwd.me/AlexCarlson-SoftwareEngineer.pdf"
                         style={{ width: '100%', height: '500px', border: 'none' }}
@@ -26,12 +29,7 @@ export default async function AllProjects() {
             </div>
 
 
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                <Link href="/" className="view-all-button">
-                    Back to Home
-                </Link>
-            </div>
-            <div className="spacer"></div>
+            <Return />
         </div>
     );
 }

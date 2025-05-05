@@ -1,11 +1,11 @@
 import { sanityClient } from '@/lib/sanity';
 import Projects from '../components/Projects';
-import Link from 'next/link';
+import Return from '../components/Return';
 
 export default async function AllProjects() {
-    // Fetch all blog posts from Sanity
-    const blogPosts = await sanityClient.fetch(
-        `*[_type == "blogPost"] | order(publishedDate desc) {
+  // Fetch all blog posts from Sanity
+  const blogPosts = await sanityClient.fetch(
+    `*[_type == "blogPost"] | order(publishedDate desc) {
       title,
       slug,
       publishedDate,
@@ -19,20 +19,15 @@ export default async function AllProjects() {
         }
       }
     }`
-    );
+  );
 
-    return (
-        <div className="container">
-            <h1 style={{ textAlign: 'center' }}>All Projects</h1>
+  return (
+    <div className="container">
+      <h1 style={{ textAlign: 'center' }}>All Projects</h1>
 
-            <Projects blogPosts={blogPosts} limit={blogPosts.length} />
+      <Projects blogPosts={blogPosts} limit={blogPosts.length} />
 
-            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                <Link href="/" className="view-all-button">
-                    Back to Home
-                </Link>
-            </div>
-            <div className="spacer"></div>
-        </div>
-    );
+      <Return />
+    </div>
+  );
 }
