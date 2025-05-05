@@ -1,5 +1,5 @@
 interface WordSaladProps {
-    list: string[];
+    list: { skill: string; category: string }[];
 }
 
 export default function WordSalad({ list }: WordSaladProps) {
