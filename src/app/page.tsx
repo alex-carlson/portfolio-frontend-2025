@@ -1,25 +1,7 @@
-import { sanityClient } from '@/lib/sanity';
 import Bio from './components/Bio';
 import Connect from './components/Connect';
 import WordSalad from './components/WordSalad';
 import Projects from './components/Projects';
-
-const blogPosts = await sanityClient.fetch(
-  `*[_type == "blogPost"] | order(publishedDate desc) {
-    title,
-    slug,
-    publishedDate,
-    tags,
-    link,
-    body,
-    mainImage {
-      asset -> {
-        _id,
-        url
-      }
-    }
-  }`
-);
 
 const skillsListObject = [
   { skill: "Unity", category: "game" },
@@ -67,7 +49,7 @@ export default async function Page() {
 
       <h1 style={{ textAlign: 'center' }}>Projects</h1>
 
-      <Projects blogPosts={blogPosts} limit={6} />
+      <Projects limit={6} />
 
       <div style={{ textAlign: 'center', margin: '2.5rem 0' }}>
         <a href="/all-projects" className="view-all-button">

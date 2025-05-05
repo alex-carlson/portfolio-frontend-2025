@@ -1,5 +1,7 @@
 import { createClient } from 'next-sanity';
 
+export const runtime = 'edge';
+
 export const config = {
     projectId: 'grwonbtj',  // Replace with your Sanity Project ID
     dataset: 'production',         // You can change this if you use a different dataset

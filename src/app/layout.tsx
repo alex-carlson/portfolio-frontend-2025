@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Work_Sans } from 'next/font/google';
 import Container from "./components/Container";
-import VisibilityController from "./components/VisibilityController";
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -26,7 +25,6 @@ export default function RootLayout({
       <body
         className={`${workSans.variable} antialiased`}
       >
-        <VisibilityController />
         <Container>
           {children}
         </Container>

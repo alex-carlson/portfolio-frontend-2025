@@ -1,7 +1,8 @@
 "use client";
+import { sanityClient } from '@/lib/sanity';
 import React, { useState } from 'react';
 import Project from './Project';
-
+import NotFound from '../404'; // Import NotFound component for 404 handling
 type BlogPost = {
     title: string;
     slug: { current: string };
@@ -18,14 +19,38 @@ type BlogPost = {
     tags: string[];
 };
 
-export default function Projects({ blogPosts, limit }: { blogPosts: BlogPost[]; limit: number }) {
+const blogPosts = await sanityClient.fetch(
+    `*[_type == "blogPost"] | order(publishedDate desc) {
+    title,
+    slug,
+    publishedDate,
+    tags,
+    link,
+    body,
+    mainImage {
+      asset -> {
+        _id,
+        url
+      }
+    }
+  }`
+);
+
+export default function Projects({ limit }: { limit?: number }) {
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+    if (!blogPosts || blogPosts.length === 0) {
+        return (
+            // use 404.tsx
+            <NotFound />
+        );
+    }
 
     const filteredBlogPosts = selectedTag
         ? blogPosts.filter((post: BlogPost) => post.tags.includes(selectedTag))
         : blogPosts;
 
-    const uniqueTags = Array.from(
+    const uniqueTags: string[] = Array.from(
         new Set(blogPosts.flatMap((post: BlogPost) => post.tags))
     );
 
@@ -56,7 +81,7 @@ export default function Projects({ blogPosts, limit }: { blogPosts: BlogPost[]; 
 
             {/* Projects */}
             <div className="projects">
-                {filteredBlogPosts.slice(0, limit).map((post: BlogPost) => (
+                {(limit ? filteredBlogPosts.slice(0, limit) : filteredBlogPosts).map((post: BlogPost) => (
                     <Project
                         key={post.slug.current}
                         title={post.title}
