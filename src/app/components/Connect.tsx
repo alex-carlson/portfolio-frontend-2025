@@ -22,7 +22,7 @@ export default function Connect() {
                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
                     <span>LinkedIn</span>
                 </a>
-                <a href="http://acwd.me/AlexCarlson-UnityEngineer.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/resume">
                     <FontAwesomeIcon icon={faFile} size="2x" />
                     <span>Resume</span>
                 </a>

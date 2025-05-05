@@ -16,6 +16,7 @@
     --link-color: #0056b3;
     --link-hover-color: #67a9f0;
     --link-select-color: #00264d;
+    --mobile-breakpoint: 800px;
 }
 
 body {
@@ -306,7 +307,7 @@ a:active {
     cursor: pointer;
 }
 
-.socials-links img,
+socials-links img,
 .socials-links svg {
     width: 2rem;
     height: 2rem;
@@ -365,4 +366,35 @@ a:active {
 .web {
     /* set background color to light orange */
     background-color: #85eb8e;
+}
+
+.resume-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+@media (max-width: 800px) {
+    .resume-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .resume-item {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .resume-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .resume-item {
+        width: 45%;
+    }
 }
