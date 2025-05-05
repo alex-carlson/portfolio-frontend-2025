@@ -10,17 +10,17 @@ export default async function AllProjects() {
 
             <div className="resume-container">
                 <div className="left resume-item">
-                    <h2>Unity Engineer <Link href="http://acwd.me/AlexCarlson-UnityEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
+                    <h2>Unity Engineer <Link href="https://acwd.me/AlexCarlson-UnityEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
                     <embed
-                        src="http://acwd.me/AlexCarlson-UnityEngineer.pdf"
+                        src="https://acwd.me/AlexCarlson-UnityEngineer.pdf"
                         style={{ width: '100%', height: '500px', border: 'none' }}
                         title="Resume"
                     />
                 </div>
                 <div className="right resume-item">
-                    <h2>Software Engineer <Link href="http://acwd.me/AlexCarlson-SoftwareEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
+                    <h2>Software Engineer <Link href="https://acwd.me/AlexCarlson-SoftwareEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
                     <embed
-                        src="http://acwd.me/AlexCarlson-SoftwareEngineer.pdf"
+                        src="https://acwd.me/AlexCarlson-SoftwareEngineer.pdf"
                         style={{ width: '100%', height: '500px', border: 'none' }}
                         title="Resume"
                     />

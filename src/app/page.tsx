@@ -60,9 +60,9 @@ export default async function Page() {
       <Projects blogPosts={blogPosts} limit={6} />
 
       <div style={{ textAlign: 'center', margin: '2.5rem 0' }}>
-          <a href="/all-projects" className="view-all-button">
-              View All Projects
-          </a>
+        <a href="/all-projects" className="view-all-button">
+          View All Projects
+        </a>
       </div>
 
       <div className="spacer"></div>
