@@ -21,31 +21,41 @@ const blogPosts = await sanityClient.fetch(
   }`
 );
 
-const skillsList = [
-  "TypeScript",
-  "React",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "Sass",
-  "Git",
-  "Next.js",
-  "Svelte",
-  "Docker",
-  "Angular",
-  "Vue"
+const skillsListObject = [
+  { skill: "Unity", category: "game" },
+  { skill: "C#", category: "game" },
+  { skill: "TypeScript", category: "web" },
+  { skill: "React", category: "web" },
+  { skill: "Node.js", category: "web" },
+  { skill: "Express", category: "web" },
+  { skill: "MongoDB", category: "web" },
+  { skill: "Sass", category: "web" },
+  { skill: "Git", category: "misc" },
+  { skill: "Next.js", category: "web" },
+  { skill: "Svelte", category: "web" },
+  { skill: "Docker", category: "misc" },
+  { skill: "Angular", category: "web" },
+  { skill: "Vue", category: "web" },
+  { skill: "Blender", category: "game" },
+  { skill: "XR", category: "game" },
+  { skill: "UE4/5", category: "game" },
+  { skill: "Godot", category: "game" },
+  { skill: "CI/CD", category: "misc" },
+  { skill: "supabase", category: "web" },
+  { skill: "mongodb", category: "web" },
 ];
 
 const interestsList = [
-  "Mechanical Keyboards",
-  "Puzzle Games",
-  "Retro Game Consoles",
-  "Game Shows",
-  "Escape Rooms",
-  "Indie Games",
-  "Karaoke",
-  "Rock Climbing",
-  "Concerts",
+  { skill: "Mechanical Keyboards", category: "interest" },
+  { skill: "Puzzle Games", category: "interest" },
+  { skill: "Retro Game Consoles", category: "interest" },
+  { skill: "Game Shows", category: "interest" },
+  { skill: "Escape Rooms", category: "interest" },
+  { skill: "Indie Games", category: "interest" },
+  { skill: "Karaoke", category: "interest" },
+  { skill: "Rock Climbing", category: "interest" },
+  { skill: "Concerts", category: "interest" },
+  { skill: "Cooking", category: "interest" },
 ];
 
 
@@ -69,9 +79,9 @@ export default async function Page() {
 
       <div className="container center">
         <h2>Skills</h2>
-        <WordSalad words={skillsList} type="skill" />
+        <WordSalad list={skillsListObject} />
         <h2>Interests</h2>
-        <WordSalad words={interestsList} type="interest" />
+        <WordSalad list={interestsList} />
       </div>
 
       <div className="spacer"></div>
