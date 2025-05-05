@@ -6,7 +6,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons';
 export default async function AllProjects() {
     return (
         <div className="resume">
-            <h1 style={{ textAlign: 'center' }}>Alex Carlson's Resumes</h1>
+            <h1 style={{ textAlign: 'center' }}>Alex Carlson&apos;s Resumes</h1>
 
             <div className="resume-container">
                 <div className="left resume-item">
