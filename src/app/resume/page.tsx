@@ -1,4 +1,3 @@
-import { sanityClient } from '@/lib/sanity';
 import Link from 'next/link';
 import Return from '../components/Return';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
