@@ -55,6 +55,7 @@ footer {
 .projects {
     display: flex;
     flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .view-all-button {
