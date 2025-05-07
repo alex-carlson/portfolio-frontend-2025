@@ -3,6 +3,11 @@ import Return from '../components/Return';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 
+export const metadata = {
+    title: 'Resume - Alex Carlson',
+    description: 'Explore the resumes of Alex Carlson.',
+};
+
 export default async function AllProjects() {
     return (
         <div className="resume">

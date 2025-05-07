@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'All Projects - Alex Carlson',
+  description: 'Explore all projects by Alex Carlson.',
+};
+
 import Projects from '../components/Projects';
 import Return from '../components/Return';
 
