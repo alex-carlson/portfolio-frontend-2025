@@ -10,7 +10,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Carlson | Game/Web Developer",
+  title: "Alex Carlson | Game / Web Developer",
   description: "Portfolio of work by Alex Carlson",
 };
 
