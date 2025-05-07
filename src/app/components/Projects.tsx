@@ -2,7 +2,6 @@
 import { sanityClient } from '@/lib/sanity';
 import React, { useState, useRef, useEffect } from 'react';
 import Project from './Project';
-import NotFound from '../404'; // Import NotFound component for 404 handling
 
 type BlogPost = {
     title: string;
@@ -41,25 +40,16 @@ export default function Projects({ limit }: { limit?: number }) {
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [fadeState, setFadeState] = useState<'fade-in' | 'fade-out'>('fade-in');
     const [activeTag, setActiveTag] = useState<string | null>(null);
-    const [isTransitioning, setIsTransitioning] = useState(false);
     const projectsRef = useRef<HTMLDivElement>(null); // Create a ref for the projects container
     const tagsRef = useRef<HTMLDivElement>(null); // Create a ref for the tags container
-    if (!blogPosts || blogPosts.length === 0) {
-        return (
-            // use 404.tsx
-            <NotFound />
-        );
-    }
 
     useEffect(() => {
         if (selectedTag !== activeTag) {
             setFadeState('fade-out');
-            setIsTransitioning(true);
 
             const timeout = setTimeout(() => {
                 setActiveTag(selectedTag);
                 setFadeState('fade-in');
-                setIsTransitioning(false);
             }, 400); // match CSS transition duration
 
             return () => clearTimeout(timeout);
