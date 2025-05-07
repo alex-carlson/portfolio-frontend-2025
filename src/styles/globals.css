@@ -55,7 +55,6 @@ footer {
 .projects {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
 }
 
 .view-all-button {
@@ -103,6 +102,31 @@ footer {
 
 .project:hover {
     border: 3px solid var(--link-hover-color);
+}
+
+.project-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.project-wrapper.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+
+.project-wrapper.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-wrapper.scaled-up {
+    margin-bottom: 1.5rem;
+}
+
+.project-wrapper.scaled-down {
+    margin-bottom: 0;
+    height: 0;
 }
 
 .project img {
@@ -243,6 +267,11 @@ p {
     box-sizing: border-box;
     cursor: pointer;
     margin: 0.5rem;
+}
+
+.tag-filter button:hover {
+    background-color: white;
+    cursor: pointer;
 }
 
 a {

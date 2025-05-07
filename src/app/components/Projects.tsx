@@ -1,8 +1,9 @@
 "use client";
 import { sanityClient } from '@/lib/sanity';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Project from './Project';
 import NotFound from '../404'; // Import NotFound component for 404 handling
+
 type BlogPost = {
     title: string;
     slug: { current: string };
@@ -38,7 +39,11 @@ const blogPosts = await sanityClient.fetch(
 
 export default function Projects({ limit }: { limit?: number }) {
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
-
+    const [fadeState, setFadeState] = useState<'fade-in' | 'fade-out'>('fade-in');
+    const [activeTag, setActiveTag] = useState<string | null>(null);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    const projectsRef = useRef<HTMLDivElement>(null); // Create a ref for the projects container
+    const tagsRef = useRef<HTMLDivElement>(null); // Create a ref for the tags container
     if (!blogPosts || blogPosts.length === 0) {
         return (
             // use 404.tsx
@@ -46,24 +51,40 @@ export default function Projects({ limit }: { limit?: number }) {
         );
     }
 
-    const filteredBlogPosts = selectedTag
-        ? blogPosts.filter((post: BlogPost) => post.tags.includes(selectedTag))
-        : blogPosts;
+    useEffect(() => {
+        if (selectedTag !== activeTag) {
+            setFadeState('fade-out');
+            setIsTransitioning(true);
+
+            const timeout = setTimeout(() => {
+                setActiveTag(selectedTag);
+                setFadeState('fade-in');
+                setIsTransitioning(false);
+            }, 400); // match CSS transition duration
+
+            return () => clearTimeout(timeout);
+        }
+    }, [selectedTag, activeTag]);
 
     const uniqueTags: string[] = Array.from(
         new Set(blogPosts.flatMap((post: BlogPost) => post.tags))
     );
 
-    const handleTagClick = (tag: string) => {
+    const handleTagClick = (tag: string | null) => {
         setSelectedTag(tag);
+        tagsRef.current?.scrollIntoView({ behavior: 'smooth' }); // Scroll to the projects section
     };
+
+    const visiblePosts = blogPosts.filter(
+        (post: BlogPost) => !activeTag || post.tags.includes(activeTag)
+    ).slice(0, limit || blogPosts.length);
 
     return (
         <div className="projects-container">
             {/* Tag Filter */}
-            <div className="tag-filter" style={{ textAlign: 'center', marginBottom: '1rem' }}>
+            <div className="tag-filter" style={{ textAlign: 'center', marginBottom: '1rem' }} ref={tagsRef}>
                 <button
-                    onClick={() => setSelectedTag(null)}
+                    onClick={() => handleTagClick(null)}
                     className={`tag-button ${!selectedTag ? 'active' : ''}`}
                 >
                     All
@@ -71,7 +92,7 @@ export default function Projects({ limit }: { limit?: number }) {
                 {uniqueTags.map((tag) => (
                     <button
                         key={tag}
-                        onClick={() => setSelectedTag(tag)}
+                        onClick={() => handleTagClick(tag)}
                         className={`tag-button ${selectedTag === tag ? 'active' : ''}`}
                     >
                         {tag}
@@ -80,17 +101,24 @@ export default function Projects({ limit }: { limit?: number }) {
             </div>
 
             {/* Projects */}
-            <div className="projects">
-                {(limit ? filteredBlogPosts.slice(0, limit) : filteredBlogPosts).map((post: BlogPost) => (
-                    <Project
+            <div className="projects" ref={projectsRef}>
+                {visiblePosts.map((post: BlogPost, index: number) => (
+                    <div
                         key={post.slug.current}
-                        title={post.title}
-                        link={post.link}
-                        mainImage={post.mainImage}
-                        body={post.body}
-                        tags={post.tags}
-                        onTagClick={handleTagClick} // Pass callback to Project
-                    />
+                        className={`project-wrapper ${fadeState}`}
+                        style={{
+                            transitionDelay: `${index * 100}ms`,
+                        }}
+                    >
+                        <Project
+                            title={post.title}
+                            link={post.link}
+                            mainImage={post.mainImage}
+                            body={post.body}
+                            tags={post.tags}
+                            onTagClick={handleTagClick}
+                        />
+                    </div>
                 ))}
             </div>
         </div>

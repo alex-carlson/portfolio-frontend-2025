@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faBluesky, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faBluesky, faLinkedin, faXTwitter, faItchIo } from '@fortawesome/free-brands-svg-icons';
 
 export default function Connect() {
     return (
@@ -17,6 +17,10 @@ export default function Connect() {
                 <a href="https://github.com/alex-carlson" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faGithub} size="2x" />
                     <span>Github</span>
+                </a>
+                <a href="https://alexcarlson.itch.io/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faItchIo} size="2x" />
+                    <span>Itch.io</span>
                 </a>
                 <a href="https://www.linkedin.com/in/carlsonalex/" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
