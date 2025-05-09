@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import profilePic from '../../../public/prof.jpg';
+import profilePic from '@/public/prof.jpg';
 
 export default function Bio() {
 

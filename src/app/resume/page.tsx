@@ -15,24 +15,22 @@ export default async function AllProjects() {
 
             <div className="resume-container">
                 <div className="left resume-item">
-                    <h2>Unity Engineer <Link href="https://acwd.me/AlexCarlson-UnityEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
+                    <h2>Unity Engineer <Link href="/unity_resume.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
                     <embed
-                        src="https://acwd.me/AlexCarlson-UnityEngineer.pdf"
+                        src="/unity_resume.pdf"
                         style={{ width: '100%', height: '500px', border: 'none' }}
-                        title="Resume"
+                        title="Unity Engineer Resume"
                     />
                 </div>
                 <div className="right resume-item">
-                    <h2>Software Engineer <Link href="https://acwd.me/AlexCarlson-SoftwareEngineer.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
+                    <h2>Software Engineer <Link href="/software_resume.pdf"> <FontAwesomeIcon icon={faLink} style={{ width: '32px' }}></FontAwesomeIcon> </Link></h2>
                     <embed
-                        src="https://acwd.me/AlexCarlson-SoftwareEngineer.pdf"
+                        src="/software_resume.pdf"
                         style={{ width: '100%', height: '500px', border: 'none' }}
-                        title="Resume"
+                        title="Software Engineer Resume"
                     />
                 </div>
             </div>
-
-
             <Return />
         </div>
     );
