@@ -49,7 +49,7 @@ export default async function Page() {
 
       <h1 style={{ textAlign: 'center' }}>Projects</h1>
 
-      <Projects limit={6} />
+      <Projects limit={24} />
 
       <div style={{ textAlign: 'center', margin: '2.5rem 0' }}>
         <a href="/all-projects" className="view-all-button">
