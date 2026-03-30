@@ -26,7 +26,7 @@ export default function Connect() {
                     <FontAwesomeIcon icon={faLinkedin} size="2x" />
                     <span>LinkedIn</span>
                 </a>
-                <a href="public/Alex Carlson - Senior Engineer.pdf">
+                <a href="/AlexCarlsonSeniorEngineer.pdf" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faFile} size="2x" />
                     <span>Resume</span>
                 </a>
